@@ -89,6 +89,14 @@ a {
   background: linear-gradient(to top, rgba(10, 18, 34, 0.72), rgba(10, 18, 34, 0.08));
 }
 
+.signup-visual {
+  background:
+    linear-gradient(145deg, rgba(255, 107, 95, 0.88), rgba(17, 184, 166, 0.78)),
+    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
 .hero-copy {
   max-width: 440px;
   animation: riseIn 900ms 180ms ease both;
@@ -216,6 +224,11 @@ a {
   animation: slideIn 800ms 120ms ease both;
 }
 
+.signup-card {
+  gap: 16px;
+  padding-block: 44px;
+}
+
 .form-header {
   margin-bottom: 8px;
 }
@@ -324,6 +337,18 @@ input:focus {
   width: 18px;
   min-height: 18px;
   accent-color: var(--teal);
+}
+
+.terms {
+  align-items: flex-start;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.terms input {
+  flex: 0 0 auto;
+  margin-top: 2px;
 }
 
 .submit-btn {

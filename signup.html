@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Signup Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="login-stage signup-stage" aria-label="Signup page">
+      <div class="visual-panel signup-visual">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="glass-pill pill-one">Start fresh</div>
+        <div class="glass-pill pill-two">Protected signup</div>
+        <div class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Join Today</p>
+          <h1>Create your new account.</h1>
+          <p>Build your profile in seconds with a clean, animated, and responsive signup experience.</p>
+        </div>
+      </div>
+
+      <form class="login-card signup-card" id="signupForm" data-success-message="Account created successfully. Welcome aboard!">
+        <div class="form-header">
+          <p class="eyebrow">Member Signup</p>
+          <h2>Get started</h2>
+          <p>Enter your details to create an account.</p>
+        </div>
+
+        <label class="field">
+          <span>Full name</span>
+          <input type="text" id="fullName" placeholder="Your name" autocomplete="name" minlength="2" required>
+        </label>
+
+        <label class="field">
+          <span>Email address</span>
+          <input type="email" id="email" placeholder="you@example.com" autocomplete="email" required>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <div class="password-wrap">
+            <input type="password" id="password" placeholder="Create password" autocomplete="new-password" minlength="6" required>
+            <button type="button" class="icon-btn" data-toggle-password="password" aria-label="Show password">
+              <span class="eye"></span>
+            </button>
+          </div>
+        </label>
+
+        <label class="field">
+          <span>Confirm password</span>
+          <div class="password-wrap">
+            <input type="password" id="confirmPassword" placeholder="Repeat password" autocomplete="new-password" minlength="6" required>
+            <button type="button" class="icon-btn" data-toggle-password="confirmPassword" aria-label="Show confirm password">
+              <span class="eye"></span>
+            </button>
+          </div>
+        </label>
+
+        <label class="remember terms">
+          <input type="checkbox" id="terms" required>
+          <span>I agree to the terms and privacy policy</span>
+        </label>
+
+        <button type="submit" class="submit-btn">
+          <span>Sign Up</span>
+          <span class="arrow">&rarr;</span>
+        </button>
+
+        <p class="signup-text">Already have an account? <a href="index.html">Login</a></p>
+        <p class="message" id="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

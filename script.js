@@ -1,25 +1,37 @@
-const form = document.querySelector("#loginForm");
+const form = document.querySelector("form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
+const confirmPassword = document.querySelector("#confirmPassword");
 const message = document.querySelector("#message");
-const togglePassword = document.querySelector("#togglePassword");
+const toggleButtons = document.querySelectorAll("[data-toggle-password], #togglePassword");
 
-togglePassword.addEventListener("click", () => {
-  const isHidden = password.type === "password";
-  password.type = isHidden ? "text" : "password";
-  togglePassword.setAttribute("aria-label", isHidden ? "Hide password" : "Show password");
+toggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const targetId = button.dataset.togglePassword;
+    const input = targetId ? document.querySelector(`#${targetId}`) : password;
+    const isHidden = input.type === "password";
+
+    input.type = isHidden ? "text" : "password";
+    button.setAttribute("aria-label", isHidden ? "Hide password" : "Show password");
+  });
 });
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (!email.validity.valid || !password.validity.valid) {
-    message.textContent = "Please enter a valid email and password.";
+  if (!form.checkValidity()) {
+    message.textContent = "Please fill all required fields correctly.";
     message.className = "message";
     return;
   }
 
-  message.textContent = "Login animation complete. Welcome back!";
+  if (confirmPassword && password.value !== confirmPassword.value) {
+    message.textContent = "Passwords do not match.";
+    message.className = "message";
+    return;
+  }
+
+  message.textContent = form.dataset.successMessage || "Form submitted successfully.";
   message.className = "message success";
   form.classList.add("submitted");
 
